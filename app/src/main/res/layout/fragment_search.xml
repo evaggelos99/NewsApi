@@ -31,7 +31,8 @@
 
         </TextView>
         <Spinner
-            android:id="@+id/Country_list_Spinner"
+            android:id="@+id/country_list_spinner"
+            android:entries="@array/Countries"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="25dp">
@@ -56,37 +57,14 @@
         </TextView>
 
         <Spinner
-            android:id="@+id/category_list_Spinner"
+            android:id="@+id/category_list_spinner"
+            android:entries="@array/Categories"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="25dp">
         </Spinner>
 
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Top Headlines">
-
-        </TextView>
-
-        <CheckBox
-            android:id="@+id/headline_checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp">
-
-
-        </CheckBox>
 
     </LinearLayout>
 

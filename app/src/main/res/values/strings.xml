@@ -7,6 +7,87 @@
     <string name="category">Category:</string>
     <string name="country">Country:</string>
     <string name="search_for_articles">Search for articles</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="Countries">
+        <item>None</item>
+
+        <item>United Arab Emirates - ae</item>
+        <item>Argentina - ar</item>
+        <item>Austria - at</item>
+        <item>Australia - au</item>
+        <item>Belgium - be</item>
+        <item>Bulgaria - bg</item>
+        <item>Canada - ca</item>
+        <item>Switzerland - ch</item>
+        <item>China - cn</item>
+        <item>Colombia - co</item>
+        <item>Cuba - cu</item>
+        <item>Czech Republic - cz</item>
+        <item>Germany - de</item>
+        <item>Egypt - eg</item>
+
+        <item>France - fr</item>
+        <item>United Kingdom - gb</item>
+        <item>Greece - gr</item>
+        <item>Hong Kong - hk</item>
+        <item>Hungary - hu</item>
+        <item>Indonesia - id</item>
+        <item>Ireland - ie</item>
+        <item>Israel - il</item>
+        <item>India - in</item>
+        <item>Italy - it</item>
+        <item>Japan - jp</item>
+        <item>Korea (South) - kr</item>
+        <item>Lithuania - lt</item>
+        <item>Latvia - lv</item>
+        <item>Morocco - ma</item>
+
+        <item>Mexico - mx</item>
+        <item>Malaysia - my</item>
+        <item>Nigeria - ng</item>
+        <item>Netherlands - nl</item>
+        <item>Norway - no</item>
+        <item>New Zealand - nz</item>
+        <item>Philippines - ph</item>
+        <item>Poland - pl</item>
+        <item>Portugal - pt</item>
+        <item>Romania - ro</item>
+        <item>Serbia - rs</item>
+        <item>Russia - ru</item>
+        <item>Saudi Arabia - sa</item>
+        <item>Sweden - se</item>
+        <item>Singapore - sg</item>
+
+        <item>Slovenia - si</item>
+        <item>Slovakia - sk</item>
+        <item>Thailand - th</item>
+        <item>Turkey - tr</item>
+        <item>Taiwan - tw</item>
+        <item>Ukraine - ua</item>
+        <item>United States of America - us</item>
+        <item>Venezuela - ve</item>
+        <item>South Africa - za</item>
+    </string-array>
+    <string-array name="Categories">
+        <item>None</item>
+        <item>business</item>
+        <item>entertainment</item>
+        <item>health</item>
+        <item>science</item>
+        <item>sports</item>
+        <item>technology</item>
+    </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_register">Register</string>
+    <string name="title_activity_login">Login</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account. Sign up</string>
+    <string name="sign_up">sign up</string>
+    <string name="already_have_an_account_log_in">Already have an Account? Log in</string>
 </resources>

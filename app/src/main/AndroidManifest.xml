@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.coursework">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:name="android.hardware.type.watch" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,14 +16,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CourseWork">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/title_activity_login"
+            android:name=".FireBase.LoginActivity">
+
+
+        </activity>
+
+        <activity
+            android:name=".FireBase.RegisterActivity"
+            android:label="@string/title_activity_register">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+
+
     </application>
 
 </manifest>

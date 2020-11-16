@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.account.ui.TopicsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_height="match_parent"
+                android:text="@string/business" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+
+            <ToggleButton
+                android:id="@+id/toggle_business"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </ToggleButton>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_height="match_parent"
+                android:text="@string/entertainment" />
+
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+            <ToggleButton
+                android:id="@+id/toggle_entertainment"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </ToggleButton>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_height="match_parent"
+                android:text="@string/general" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+            <ToggleButton
+                android:id="@+id/toggle_general"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </ToggleButton>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_height="match_parent"
+                android:text="@string/science" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+            <ToggleButton
+                android:id="@+id/toggle_science"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </ToggleButton>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_height="match_parent"
+                android:text="@string/health" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+            <ToggleButton
+                android:id="@+id/toggle_health"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </ToggleButton>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_height="match_parent"
+                android:text="@string/sports" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+            <ToggleButton
+                android:id="@+id/toggle_sports"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </ToggleButton>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_height="match_parent"
+                android:text="@string/technology" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+            <ToggleButton
+                android:id="@+id/toggle_technology"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </ToggleButton>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/choose_preferred_country"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+            <Spinner
+                android:id="@+id/category_preferred_language"
+                android:entries="@array/Countries"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/reset_topics"
+            android:text="@string/reset_topics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+    <Button
+        android:id="@+id/save_topics"
+        android:text="@string/save_topics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </Button>
+
+    </LinearLayout>
+
+
+
+
+</FrameLayout>

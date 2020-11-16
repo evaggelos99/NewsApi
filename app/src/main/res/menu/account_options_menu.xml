@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/user"
+        android:title="@string/user">
+
+    </item>
+
+    <item
+        android:id="@+id/settings"
+        android:title="@string/settings">
+
+    </item>
+
+    <item
+        android:id="@+id/feeds"
+        android:title="@string/feeds">
+
+    </item>
+
+    <item
+        android:id="@+id/topics"
+        android:title="@string/topics">
+
+    </item>
+
+</menu>

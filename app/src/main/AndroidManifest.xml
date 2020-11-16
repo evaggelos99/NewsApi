@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.coursework">
+    package="com.example.coursework" >
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -14,34 +14,36 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CourseWork">
+        android:theme="@style/Theme.CourseWork" >
         <activity
-            android:label="@string/title_activity_login"
-            android:name=".FireBase.LoginActivity">
-
-
+            android:name=".ui.account.ui.AccountActivity"
+            android:label="@string/title_activity_account"
+            android:theme="@style/Theme.CourseWork.NoActionBar" >
         </activity>
-
+        <activity
+            android:name=".FireBase.LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
         <activity
             android:name=".FireBase.RegisterActivity"
-            android:label="@string/title_activity_register">
+            android:label="@string/title_activity_register" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+
+            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            -->
         </activity>
-
-
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-        </activity>
-
-
     </application>
 
 </manifest>

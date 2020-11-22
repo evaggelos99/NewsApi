@@ -134,4 +134,6 @@
     <string name="save_topics">Save Topics</string>
     <string name="choose_preferred_country">Choose preferred Country:</string>
     <string name="reset_topics">reset topics</string>
+    <string name="log_out">Log out</string>
+    <string name="title_activity_web_view">WebViewActivity</string>
 </resources>

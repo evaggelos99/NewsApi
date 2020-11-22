@@ -14,7 +14,7 @@ class Article(val source: Any,
               val content:String) {
 
     override fun toString(): String {
-
+    
         return "Article(source=$source)"
     }
 

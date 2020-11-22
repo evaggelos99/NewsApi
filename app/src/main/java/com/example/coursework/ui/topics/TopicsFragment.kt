@@ -1,24 +1,29 @@
 package com.example.coursework.ui.topics
 
+import android.app.Activity
+import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.view.GestureDetector
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.coursework.ArticleArray
-import com.example.coursework.MyAdapter
-import com.example.coursework.R
+import com.example.coursework.*
 import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
 
 
-class TopicsFragment : Fragment() {
+
+class TopicsFragment : Fragment(), onItemClickListener {
 
     val BASE_URL = "http://newsapi.org/v2"
     val EVERYTHING = "/everything?"
@@ -27,14 +32,27 @@ class TopicsFragment : Fragment() {
     val TOP_HEADLINES = "/top-headlines?"
 
     private lateinit var topicsViewModel: TopicsViewModel
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
+
+
         val root = inflater.inflate(R.layout.fragment_topics, container, false)
-        val buttonGenerateTopics: Button = root.findViewById(R.id.button_generate_news)
+
+
+
+
+            return root
+        }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val buttonGenerateTopics: Button = view.findViewById(R.id.button_generate_news)
         val preferences = activity?.getSharedPreferences("pref", Context.MODE_PRIVATE)
         prefArray.add(preferences!!.getBoolean("entertainment", false))
         prefArray.add("entertainment")
@@ -52,47 +70,59 @@ class TopicsFragment : Fragment() {
 
 
 
-            buttonGenerateTopics.setOnClickListener {
-                var categoryURL = ""
-                var x = 0
-                while (x < prefArray.size - 1 || x < prefArray.size) {
-                    if (prefArray[x] == true ) {
-                        categoryURL = categoryURL + "category="+prefArray[x + 1].toString() + "&"
-                        x += 2
-                    } else {
-                        x += 2
-                    }
+
+        buttonGenerateTopics.setOnClickListener {
+            var categoryURL = ""
+            var x = 0
+            while (x < prefArray.size - 1 || x < prefArray.size) {
+                if (prefArray[x] == true ) {
+                    categoryURL = categoryURL + "category="+prefArray[x + 1].toString() + "&"
+                    x += 2
+                } else {
+                    x += 2
                 }
-                val request = Request.Builder()
+            }
+            val request = Request.Builder()
                     .url(BASE_URL + TOP_HEADLINES +"country="+preferredCountry+"&"+categoryURL + "pageSize=10&" + API_KEY).build()
 
-                val client = OkHttpClient()
-                client.newCall(request).enqueue(object : Callback {
-                    override fun onFailure(call: Call, e: IOException) {
+            val client = OkHttpClient()
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {}
 
+                override fun onResponse(call: Call, response: Response) {
+                    val body = response.body?.string()
+                    val gson = GsonBuilder().create()
+                    val articles = gson.fromJson(body, ArticleArray::class.java)
+                    val recyclerViewLayout =
+                            view.findViewById(R.id.recyclerView_topics_layout) as RecyclerView
+
+
+
+                    activity?.runOnUiThread {
+                        val llm = LinearLayoutManager(context)
+                        llm.orientation = LinearLayoutManager.VERTICAL
+                        recyclerViewLayout.setLayoutManager(llm)
+                        recyclerViewLayout.setAdapter(MyAdapter(articles,this@TopicsFragment))
                     }
 
-                    override fun onResponse(call: Call, response: Response) {
-                        val body = response.body?.string()
-                        val gson = GsonBuilder().create()
-                        val articles = gson.fromJson(body, ArticleArray::class.java)
-                        val recyclerViewLayout =
-                            root.findViewById(R.id.recyclerView_topics_layout) as RecyclerView
-
-                        activity?.runOnUiThread {
-                            val llm = LinearLayoutManager(context)
-                            llm.orientation = LinearLayoutManager.VERTICAL
-                            recyclerViewLayout.setLayoutManager(llm)
-                            recyclerViewLayout.setAdapter(MyAdapter(articles))
-                        }
-                    }
 
 
-                })
+                }
 
-            }
 
-            return root
+            })
+
         }
+
+
+
+    }
+
+    override fun onItemClick(item : Article, position: Int) {
+        val newIntent = Intent(Intent.ACTION_VIEW)
+        newIntent.data = Uri.parse(item.url)
+        startActivity(newIntent)
+    }
+
 
 }

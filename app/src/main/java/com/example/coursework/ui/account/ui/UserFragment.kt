@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.coursework.FireBase.LoginActivity
+import com.example.coursework.FireBase.RegisterActivity
 import com.example.coursework.R
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -24,23 +25,23 @@ class UserFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
     }
-
+    
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
         val root = inflater.inflate(R.layout.fragment_user, container, false)
-        val buttonChangePassword : Button = root.findViewById(R.id.button_change_password)
-
+        val buttonLogOut :Button = root.findViewById(R.id.button_log_out)
         auth = FirebaseAuth.getInstance()
-        buttonChangePassword.setOnClickListener{
-            changePassword(root.findViewById(R.id.current_password),
-                root.findViewById(R.id.new_password),
-                root.findViewById(R.id.confirm_password))
+        buttonLogOut.setOnClickListener {
+            if (auth.currentUser!=null) {
+                auth.signOut()
+                val intent = Intent(activity, RegisterActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(context,"The user is logged out", Toast.LENGTH_SHORT).show()
+            }
         }
-
-
 
 
         // Inflate the layout for this fragment
@@ -48,53 +49,7 @@ class UserFragment : Fragment() {
 
     }
 
-    private fun changePassword(
-        current_password: EditText,
-        new_password: EditText,
-        confirm_password: EditText
-    ) {
-        if (current_password.text.isNotEmpty() &&
-                new_password.text.isNotEmpty() &&
-                confirm_password.text.isEmpty() ) {
-            if (new_password.text.toString().equals(confirm_password.text.toString())) {
 
-                val user: FirebaseUser? = auth.currentUser
-
-                if(user!=null && user.email!=null) {
-                    val credential = EmailAuthProvider
-                        .getCredential(user.email!!, current_password.text.toString())
-
-                    // Prompt the user to re-provide their sign-in credentials
-                    user.reauthenticate(credential)
-                        .addOnCompleteListener { task ->
-                            if (task.isSuccessful) {
-                                Toast.makeText(context,"Re-authentication sucess",Toast.LENGTH_SHORT).show()
-                                user.updatePassword(new_password.text.toString())
-                                    .addOnCompleteListener { task ->
-                                        if (task.isSuccessful) {
-                                            Toast.makeText(context,"Password has changed",Toast.LENGTH_SHORT).show()
-                                            auth.signOut()
-                                            val intent = Intent(activity, LoginActivity::class.java)
-                                            startActivity(intent)
-                                        }
-                                    }
-                            } else {
-                                Toast.makeText(context,"Re-authentication failed",Toast.LENGTH_SHORT).show()
-
-                            }
-                        }
-                } else {
-                    val intent = Intent(activity, LoginActivity::class.java)
-                    startActivity(intent)
-                }
-            } else {
-                Toast.makeText(context, "Password mismatching", Toast.LENGTH_SHORT).show()
-            }
-
-
-        }
-
-    }
 
 
 }

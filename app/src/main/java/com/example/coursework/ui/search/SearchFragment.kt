@@ -1,24 +1,23 @@
 package com.example.coursework.ui.search
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.coursework.ArticleArray
-import com.example.coursework.MyAdapter
-import com.example.coursework.R
+import com.example.coursework.*
 import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
 
-class SearchFragment : Fragment() {
+class SearchFragment : Fragment(), onItemClickListener {
 
 
     val BASE_URL ="http://newsapi.org/v2"
@@ -91,7 +90,7 @@ class SearchFragment : Fragment() {
                         val llm = LinearLayoutManager(context)
                         llm.orientation = LinearLayoutManager.VERTICAL
                         recyclerViewLayout.setLayoutManager(llm)
-                        recyclerViewLayout.setAdapter(MyAdapter(articles))
+                        recyclerViewLayout.setAdapter(MyAdapter(articles, this@SearchFragment))
                     }
                 }
 
@@ -99,6 +98,12 @@ class SearchFragment : Fragment() {
             })
         }
         return root
+    }
+
+    override fun onItemClick(item: Article, position: Int) {
+        val newIntent = Intent(Intent.ACTION_VIEW)
+        newIntent.data = Uri.parse(item.url)
+        startActivity(newIntent)
     }
 
 }

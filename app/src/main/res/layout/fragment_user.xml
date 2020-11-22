@@ -10,45 +10,11 @@
         android:orientation="vertical"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/current_password"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="7dp"
-            android:hint="@string/current_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </EditText>
-
-        <EditText
-            android:id="@+id/new_password"
-            android:inputType="textPassword"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="7dp"
-            android:hint="@string/new_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </EditText>
-
-        <EditText
-            android:inputType="textPassword"
-            android:id="@+id/confirm_password"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="7dp"
-            android:hint="@string/confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        </EditText>
 
         <Button
-            android:text="@string/change_password"
+            android:text="@string/log_out"
             android:layout_width="match_parent"
-            android:id="@+id/button_change_password"
+            android:id="@+id/button_log_out"
             android:layout_height="wrap_content">
 
 

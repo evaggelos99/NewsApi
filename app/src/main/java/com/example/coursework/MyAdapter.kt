@@ -21,15 +21,24 @@ class MyAdapter(val articleArray: ArticleArray, var clickListener : onItemClickL
             textViewTitle.text = item.title
             textViewDescription.text = item.description
             Picasso.get().load(item.urlToImage).into(image)
+
+
             val gg = item.source.toString()
-            textViewSource.text = gg.replace("{id=", "")
-                    .replace(", name=", "\n")
-                    .replace("}","")
-                    .replace("null","")
+            textViewSource.text = item.source.name
             textViewAuthor.text = item.author
+
+
+
             itemView.setOnClickListener {
                 action.onItemClick(item, adapterPosition)
             }
+            itemView.setOnLongClickListener {
+                action.onSourceAddClick(item,adapterPosition)
+                true
+            }
+
+
+
         }
     }
 
@@ -56,15 +65,22 @@ class MyAdapter(val articleArray: ArticleArray, var clickListener : onItemClickL
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent?.context).inflate(R.layout.cardview_row, parent, false)
 
+
+
         return ViewHolder(v)
     }
 
+
 }
+
 
 interface  onItemClickListener{
 
-
     fun onItemClick(item : Article, position: Int) {
+
+    }
+
+    fun onSourceAddClick(item : Article, position: Int) {
 
     }
 }

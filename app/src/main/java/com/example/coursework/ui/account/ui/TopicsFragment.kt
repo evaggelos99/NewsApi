@@ -72,7 +72,7 @@ class TopicsFragment : Fragment() {
             println("the country selected is this:" + country)
             editor?.putString("preferred_country",country)
             editor?.commit()
-            Toast.makeText(context, "Topics saved!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Source added!", Toast.LENGTH_SHORT).show()
     }
 
 

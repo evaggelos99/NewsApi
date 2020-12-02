@@ -4,7 +4,7 @@ class ArticleArray(val status: String, val totalResults: Int, val articles: List
 
 }
 
-class Article(val source: Any,
+class Article(val source: Source,
               val author: String,
               val title: String,
               val description:String,
@@ -13,9 +13,13 @@ class Article(val source: Any,
               val publishedAt:String,
               val content:String) {
 
-    override fun toString(): String {
-    
-        return "Article(source=$source)"
-    }
+
+
+}
+
+class Source(val id : String,
+        val name : String) {
+
+
 
 }

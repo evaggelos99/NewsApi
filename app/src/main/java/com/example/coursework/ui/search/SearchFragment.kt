@@ -1,5 +1,6 @@
 package com.example.coursework.ui.search
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -41,7 +42,6 @@ class SearchFragment : Fragment(), onItemClickListener {
     ): View? {
         var root = inflater.inflate(R.layout.fragment_search, container, false)
         val searchButton: Button = root.findViewById(R.id.search_button)
-
 
 
         searchButton.setOnClickListener {
@@ -116,4 +116,28 @@ class SearchFragment : Fragment(), onItemClickListener {
         startActivity(newIntent)
     }
 
+    override fun onSourceAddClick(item: Article, position: Int) {
+        Toast.makeText(context,"Your source has been added!", Toast.LENGTH_SHORT).show()
+        val preferences = activity?.getSharedPreferences("sources", Context.MODE_PRIVATE)
+        val editor = preferences?.edit()
+        val prevSet = preferences?.getStringSet("sources", null)
+        var set : MutableSet<String> = HashSet()
+        if (prevSet==null) {
+            var set: MutableSet<String> = HashSet()
+        } else {
+            var set = prevSet
+        }
+
+
+
+        if (item.source.id==null) {
+            set.add(item.source.name)
+        } else {
+            set.add(item.source.id)
+        }
+        editor?.putStringSet("sources", set)
+        editor?.commit()
+        Toast.makeText(context, "Source added!", Toast.LENGTH_SHORT).show()
+
+    }
 }

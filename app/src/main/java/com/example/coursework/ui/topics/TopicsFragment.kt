@@ -1,7 +1,5 @@
 package com.example.coursework.ui.topics
 
-import android.app.Activity
-import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -9,11 +7,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +16,6 @@ import com.example.coursework.*
 import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
-
 
 
 class TopicsFragment : Fragment(), onItemClickListener {
@@ -40,47 +34,11 @@ class TopicsFragment : Fragment(), onItemClickListener {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_topics, container, false)
+
         return root
         }
 
-    private fun swipeUpListener(preferredCountry: String) {
-        layout.setOnTouchListener(object : OnSwipeTouchListener(context) {
-            override fun onSwipeDown() {
-                super.onSwipeDown()
-                //val swipeUpInfo = view?.findViewById(R.id.swipe_up_information) as TextView
-                //swipeUpInfo.visibility= View.GONE
-                var categoryURL = getCategoryUrl()
-                val request = Request.Builder()
-                        .url(BASE_URL + TOP_HEADLINES +"country="+preferredCountry+"&"+categoryURL + "pageSize=10&" + API_KEY).build()
 
-                val client = OkHttpClient()
-                client.newCall(request).enqueue(object : Callback {
-                    override fun onFailure(call: Call, e: IOException) {}
-
-                    override fun onResponse(call: Call, response: Response) {
-                        val body = response.body?.string()
-                        val gson = GsonBuilder().create()
-                        val articles = gson.fromJson(body, ArticleArray::class.java)
-                        val recyclerViewLayout =
-                                view?.findViewById(R.id.recyclerView_topics_layout) as RecyclerView
-
-                        activity?.runOnUiThread {
-                            val llm = LinearLayoutManager(context)
-                            llm.orientation = LinearLayoutManager.VERTICAL
-                            recyclerViewLayout.setLayoutManager(llm)
-                            recyclerViewLayout.setAdapter(MyAdapter(articles,this@TopicsFragment))
-                        }
-
-
-
-                    }
-
-
-                })
-
-            }
-        })
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -103,16 +61,15 @@ class TopicsFragment : Fragment(), onItemClickListener {
         prefArray.add("technology")
         val preferredCountry = (preferences.getString("preferred_country", "gb"))
         if (preferredCountry != null) {
-            swipeUpListener(preferredCountry)
+            swipeDownListener(preferredCountry, view)
+
         }
-
-        //buttonGenerateTopics.setOnClickListener {
-
-       // }
 
 
 
     }
+
+
 
     private fun getCategoryUrl(): String {
         var categoryURL1 = ""
@@ -132,6 +89,91 @@ class TopicsFragment : Fragment(), onItemClickListener {
         val newIntent = Intent(Intent.ACTION_VIEW)
         newIntent.data = Uri.parse(item.url)
         startActivity(newIntent)
+    }
+
+    override fun onSourceAddClick(item: Article, position: Int) {
+        Toast.makeText(context,"Your source has been added!", Toast.LENGTH_SHORT).show()
+        val preferences = activity?.getSharedPreferences("sources", Context.MODE_PRIVATE)
+        val editor = preferences?.edit()
+        val prevSet = preferences!!.getStringSet("sources", null)
+
+        val set: MutableSet<String> = prevSet as MutableSet<String>
+        if (item.source.id==null) {
+            set.add(item.source.name)
+        } else {
+            set.add(item.source.id)
+        }
+        Toast.makeText(context, item.source.name, Toast.LENGTH_LONG).show()
+        editor?.putStringSet("sources", set)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private fun swipeDownListener(preferredCountry: String, view: View) {
+        layout.setOnTouchListener(object : OnSwipeTouchListener(context) {
+            override fun onSwipeDown() {
+                super.onSwipeDown()
+                //val swipeUpInfo = view?.findViewById(R.id.swipe_up_information) as TextView
+                //swipeUpInfo.visibility= View.GONE
+                val categoryURL = getCategoryUrl()
+                val request = Request.Builder()
+                        .url(BASE_URL + TOP_HEADLINES +"country="+preferredCountry+"&"+categoryURL + "pageSize=10&" + API_KEY).build()
+
+                val client = OkHttpClient()
+                client.newCall(request).enqueue(object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {}
+
+                    override fun onResponse(call: Call, response: Response) {
+                        val body = response.body?.string()
+                        val gson = GsonBuilder().create()
+                        val articles = gson.fromJson(body, ArticleArray::class.java)
+                        val recyclerViewLayout =
+                                view?.findViewById(R.id.recyclerView_topics_layout) as RecyclerView
+
+                        activity?.runOnUiThread {
+                            val llm = LinearLayoutManager(context)
+                            llm.orientation = LinearLayoutManager.VERTICAL
+                            recyclerViewLayout.setLayoutManager(llm)
+                            recyclerViewLayout.setAdapter(MyAdapter(articles,this@TopicsFragment))
+
+                        }
+
+
+
+                    }
+
+
+
+                })
+
+
+            }
+
+
+        })
+
+
     }
 
 

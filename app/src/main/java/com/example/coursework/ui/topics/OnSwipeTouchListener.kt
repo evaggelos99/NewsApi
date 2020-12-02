@@ -8,9 +8,11 @@ import java.lang.Math.abs
 
 internal open class OnSwipeTouchListener(c: Context?) : View.OnTouchListener {
     private val gestureDetector: GestureDetector
+
     override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
         return gestureDetector.onTouchEvent(motionEvent)
     }
+
     private inner class GestureListener : GestureDetector.SimpleOnGestureListener() {
         private val SWIPE_THRESHOLD: Int = 100
         private val SWIPE_VELOCITY_THRESHOLD: Int = 100
@@ -70,6 +72,7 @@ internal open class OnSwipeTouchListener(c: Context?) : View.OnTouchListener {
             return false
         }
     }
+
     open fun onSwipeRight() {}
     open fun onSwipeLeft() {}
     open fun onSwipeUp() {}
@@ -80,4 +83,6 @@ internal open class OnSwipeTouchListener(c: Context?) : View.OnTouchListener {
     init {
         gestureDetector = GestureDetector(c, GestureListener())
     }
+
+    open fun swipeDownListener() {}
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/topic_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,13 +9,14 @@
     tools:context=".ui.topics.TopicsFragment"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button_generate_news"
-        android:text="Generate News"
+
+    <!--<TextView
+        android:id="@+id/swipe_up_information"
         android:layout_width="match_parent"
+        android:text="@string/swipe_up_for_generating_news"
         android:layout_height="wrap_content">
 
-    </Button>
+    </TextView> -->
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/recyclerView_topics_layout"

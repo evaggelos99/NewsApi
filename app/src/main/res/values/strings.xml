@@ -136,4 +136,6 @@
     <string name="reset_topics">reset topics</string>
     <string name="log_out">Log out</string>
     <string name="title_activity_web_view">WebViewActivity</string>
+    <string name="swipe_up_for_generating_news">Swipe up for generating news</string>
+    <string name="navigate_back_to_register_screen">Navigate back to Register screen</string>
 </resources>

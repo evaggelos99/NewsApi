@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -46,18 +47,10 @@ class SearchFragment : Fragment(), onItemClickListener {
         searchButton.setOnClickListener {
 
             val spinnerCountry : Spinner = root.findViewById(R.id.country_list_spinner)
-            var country = spinnerCountry.selectedItem.toString().
-            substring(spinnerCountry.selectedItem.toString().length-2,
-                    spinnerCountry.selectedItem.toString().length)
-            if (country=="ne") {
-                country=""
-            } else country = "$COUNTRY$country&"
+            var country = countryString(spinnerCountry)
 
             val spinnerCategory : Spinner = root.findViewById(R.id.category_list_spinner)
-            var category = spinnerCategory.selectedItem.toString()
-            if (category=="None") {
-                category=""
-            } else category = "$CATEGORY$category&"
+            var category = categoryString(spinnerCategory)
 
             val keywordInput : EditText = root.findViewById(R.id.Keyword_Input)
 
@@ -76,7 +69,7 @@ class SearchFragment : Fragment(), onItemClickListener {
             val client = OkHttpClient()
             client.newCall(request).enqueue(object: Callback {
                 override fun onFailure(call: Call, e: IOException) {
-
+                    Toast.makeText(context,"The connection failed tried again", Toast.LENGTH_SHORT).show()
                 }
 
 
@@ -98,6 +91,23 @@ class SearchFragment : Fragment(), onItemClickListener {
             })
         }
         return root
+    }
+
+    private fun categoryString(spinnerCategory: Spinner): String {
+        var category = spinnerCategory.selectedItem.toString()
+        if (category == "None") {
+            category = ""
+        } else category = "$CATEGORY$category&"
+        return category
+    }
+
+    private fun countryString(spinnerCountry: Spinner): String {
+        var country = spinnerCountry.selectedItem.toString().substring(spinnerCountry.selectedItem.toString().length - 2,
+                spinnerCountry.selectedItem.toString().length)
+        if (country == "ne") {
+            country = ""
+        } else country = "$COUNTRY$country&"
+        return country
     }
 
     override fun onItemClick(item: Article, position: Int) {

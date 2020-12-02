@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
@@ -31,28 +32,62 @@ class TopicsFragment : Fragment(), onItemClickListener {
     val prefArray = arrayListOf<Any>()
     val TOP_HEADLINES = "/top-headlines?"
 
-    private lateinit var topicsViewModel: TopicsViewModel
-
+    private lateinit var layout: LinearLayout
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
-
         val root = inflater.inflate(R.layout.fragment_topics, container, false)
-
-
-
-
-            return root
+        return root
         }
+
+    private fun swipeUpListener(preferredCountry: String) {
+        layout.setOnTouchListener(object : OnSwipeTouchListener(context) {
+            override fun onSwipeDown() {
+                super.onSwipeDown()
+                //val swipeUpInfo = view?.findViewById(R.id.swipe_up_information) as TextView
+                //swipeUpInfo.visibility= View.GONE
+                var categoryURL = getCategoryUrl()
+                val request = Request.Builder()
+                        .url(BASE_URL + TOP_HEADLINES +"country="+preferredCountry+"&"+categoryURL + "pageSize=10&" + API_KEY).build()
+
+                val client = OkHttpClient()
+                client.newCall(request).enqueue(object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {}
+
+                    override fun onResponse(call: Call, response: Response) {
+                        val body = response.body?.string()
+                        val gson = GsonBuilder().create()
+                        val articles = gson.fromJson(body, ArticleArray::class.java)
+                        val recyclerViewLayout =
+                                view?.findViewById(R.id.recyclerView_topics_layout) as RecyclerView
+
+                        activity?.runOnUiThread {
+                            val llm = LinearLayoutManager(context)
+                            llm.orientation = LinearLayoutManager.VERTICAL
+                            recyclerViewLayout.setLayoutManager(llm)
+                            recyclerViewLayout.setAdapter(MyAdapter(articles,this@TopicsFragment))
+                        }
+
+
+
+                    }
+
+
+                })
+
+            }
+        })
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val buttonGenerateTopics: Button = view.findViewById(R.id.button_generate_news)
+        Toast.makeText(context,"Swipe down to refresh your topics!", Toast.LENGTH_LONG).show()
+        //val buttonGenerateTopics: Button = view.findViewById(R.id.button_generate_news)
+        layout = view.findViewById(R.id.topic_layout)
+
         val preferences = activity?.getSharedPreferences("pref", Context.MODE_PRIVATE)
         prefArray.add(preferences!!.getBoolean("entertainment", false))
         prefArray.add("entertainment")
@@ -67,55 +102,30 @@ class TopicsFragment : Fragment(), onItemClickListener {
         prefArray.add(preferences.getBoolean("technology", false))
         prefArray.add("technology")
         val preferredCountry = (preferences.getString("preferred_country", "gb"))
-
-
-
-
-        buttonGenerateTopics.setOnClickListener {
-            var categoryURL = ""
-            var x = 0
-            while (x < prefArray.size - 1 || x < prefArray.size) {
-                if (prefArray[x] == true ) {
-                    categoryURL = categoryURL + "category="+prefArray[x + 1].toString() + "&"
-                    x += 2
-                } else {
-                    x += 2
-                }
-            }
-            val request = Request.Builder()
-                    .url(BASE_URL + TOP_HEADLINES +"country="+preferredCountry+"&"+categoryURL + "pageSize=10&" + API_KEY).build()
-
-            val client = OkHttpClient()
-            client.newCall(request).enqueue(object : Callback {
-                override fun onFailure(call: Call, e: IOException) {}
-
-                override fun onResponse(call: Call, response: Response) {
-                    val body = response.body?.string()
-                    val gson = GsonBuilder().create()
-                    val articles = gson.fromJson(body, ArticleArray::class.java)
-                    val recyclerViewLayout =
-                            view.findViewById(R.id.recyclerView_topics_layout) as RecyclerView
-
-
-
-                    activity?.runOnUiThread {
-                        val llm = LinearLayoutManager(context)
-                        llm.orientation = LinearLayoutManager.VERTICAL
-                        recyclerViewLayout.setLayoutManager(llm)
-                        recyclerViewLayout.setAdapter(MyAdapter(articles,this@TopicsFragment))
-                    }
-
-
-
-                }
-
-
-            })
-
+        if (preferredCountry != null) {
+            swipeUpListener(preferredCountry)
         }
 
+        //buttonGenerateTopics.setOnClickListener {
+
+       // }
 
 
+
+    }
+
+    private fun getCategoryUrl(): String {
+        var categoryURL1 = ""
+        var x = 0
+        while (x < prefArray.size - 1 || x < prefArray.size) {
+            if (prefArray[x] == true) {
+                categoryURL1 = categoryURL1 + "category=" + prefArray[x + 1].toString() + "&"
+                x += 2
+            } else {
+                x += 2
+            }
+        }
+        return categoryURL1
     }
 
     override fun onItemClick(item : Article, position: Int) {

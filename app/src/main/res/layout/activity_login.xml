@@ -37,5 +37,22 @@
     </Button>
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:layout_height="match_parent">
+
+
+        <Button
+            android:id="@+id/button_login_register"
+            android:text="@string/navigate_back_to_register_screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+    </LinearLayout>
+
 
 </LinearLayout>

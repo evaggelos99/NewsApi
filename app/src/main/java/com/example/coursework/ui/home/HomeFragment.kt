@@ -46,6 +46,7 @@ class HomeFragment : Fragment(), onItemClickListener {
 
         if (sourceSet != null) {
             swipeDownListener(sourceSet,view)
+            Toast.makeText(context, sourceSet.toString(), Toast.LENGTH_LONG).show()
         }
 
     }
@@ -54,8 +55,9 @@ class HomeFragment : Fragment(), onItemClickListener {
         var sourceString = "sources="
         if (set.isEmpty()) return ""
         for (source in set) {
-            var currentSource = source+","
-            //var currentSource = source.filter { !it.isWhitespace() }
+            var currentSource = source.filter { !it.isWhitespace() }
+            currentSource = currentSource+","
+
             //currentSource+=".com,"
             //currentSource+=","
             sourceString+=currentSource
@@ -63,6 +65,7 @@ class HomeFragment : Fragment(), onItemClickListener {
 
         sourceString = sourceString.substring(0,sourceString.length - 1)
         sourceString+= "&"
+        Toast.makeText(context, sourceString, Toast.LENGTH_SHORT).show()
         return sourceString
     }
 

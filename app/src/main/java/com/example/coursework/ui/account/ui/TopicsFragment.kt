@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.Toast
-import android.widget.ToggleButton
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.coursework.R
 
@@ -73,7 +70,10 @@ class TopicsFragment : Fragment() {
             editor?.putString("preferred_country",country)
             editor?.commit()
             Toast.makeText(context, "Source added!", Toast.LENGTH_SHORT).show()
+
     }
+
+
 
 
 

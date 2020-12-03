@@ -92,19 +92,25 @@ class TopicsFragment : Fragment(), onItemClickListener {
     }
 
     override fun onSourceAddClick(item: Article, position: Int) {
-        Toast.makeText(context,"Your source has been added!", Toast.LENGTH_SHORT).show()
         val preferences = activity?.getSharedPreferences("sources", Context.MODE_PRIVATE)
         val editor = preferences?.edit()
-        val prevSet = preferences!!.getStringSet("sources", null)
+        var set : MutableSet<String> = HashSet()
+        val prevSet = preferences!!.getStringSet("sources", set)
 
-        val set: MutableSet<String> = prevSet as MutableSet<String>
-        if (item.source.id==null) {
-            set.add(item.source.name)
-        } else {
-            set.add(item.source.id)
-        }
-        Toast.makeText(context, item.source.name, Toast.LENGTH_LONG).show()
-        editor?.putStringSet("sources", set)
+
+
+
+            if (prevSet != null) {
+                if (item.source.id !=null) {
+                    prevSet.add(item.source.id)
+                    Toast.makeText(context, "Your source has been added!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "This source is not available to be added", Toast.LENGTH_SHORT).show()
+                }
+            }
+        editor?.putStringSet("sources", prevSet)
+        editor?.commit()
+
     }
 
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    layout_height="70dp"
+    layout_width="150dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <TextView
+            android:id="@+id/feed_textView"
+            android:textSize="35sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </TextView>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@android:color/darker_gray"
+        android:layout_height="1dp">
+
+    </View>
+
+    </androidx.cardview.widget.CardView>
+
+

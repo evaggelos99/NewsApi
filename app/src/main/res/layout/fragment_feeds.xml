@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.account.ui.FeedsFragment">
 
-    <Button
-        android:text="reset feed topics"
-        android:id="@+id/reset_feeds"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="Slide left to remove any feed">
 
-    </Button>
+    </TextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/feed_recView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</FrameLayout>
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+</LinearLayout>

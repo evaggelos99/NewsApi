@@ -23,6 +23,7 @@ import java.io.IOException
 class SearchFragment : Fragment(), onItemClickListener {
 
     //TODO Make the xml prettier maybe commit another fragment to display the recycler yes maybe!
+    //TODO Make notifications. Look into sleep mode. NOTIFICATIONS ONLY ON TOPICS SELECTED BY USER
     val BASE_URL ="https://newsapi.org/v2"
     val TOP_HEADLINES = "/top-headlines?"
     val EVERYTHING = "/everything?"

@@ -22,7 +22,6 @@ class MyAdapter(val articleArray: ArticleArray, var clickListener : onItemClickL
             textViewDescription.text = item.description
             Picasso.get().load(item.urlToImage).into(image)
 
-
             val gg = item.source.toString()
             textViewSource.text = item.source.name
             textViewAuthor.text = item.author

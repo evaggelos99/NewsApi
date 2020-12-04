@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,8 +22,8 @@ import java.io.IOException
 
 class SearchFragment : Fragment(), onItemClickListener {
 
-
-    val BASE_URL ="http://newsapi.org/v2"
+    //TODO Make the xml prettier maybe commit another fragment to display the recycler yes maybe!
+    val BASE_URL ="https://newsapi.org/v2"
     val TOP_HEADLINES = "/top-headlines?"
     val EVERYTHING = "/everything?"
     val API_KEY = "apiKey=bb5340ea2839447eb75d2e5515ab6081"
@@ -60,18 +61,16 @@ class SearchFragment : Fragment(), onItemClickListener {
                 keyword = ""
             } else keyword= "q=$keyword&"
 
-            //var articleClass : ArticleArray? = null
-            //val request = Request.Builder().url(
-            //        BASE_URL+secondParam+KEYWORD_PHRASE+keywordInput.text.toString()+"&"+API_KEY).build()
             val request = Request.Builder().url(BASE_URL+TOP_HEADLINES+
                     country+category + keyword +API_KEY).build()
 
             val client = OkHttpClient()
+
             client.newCall(request).enqueue(object: Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    Toast.makeText(context,"The connection failed tried again", Toast.LENGTH_SHORT).show()
+                    Looper.prepare()
+                    Toast.makeText(context,e.localizedMessage, Toast.LENGTH_SHORT).show()
                 }
-
 
                 override fun onResponse(call: Call, response: Response) {
                     val body = response.body?.string()
@@ -126,13 +125,13 @@ class SearchFragment : Fragment(), onItemClickListener {
                 if (item.source.id !=null) {
                     prevSet.add(item.source.id)
                     Toast.makeText(context, "Your source has been added!", Toast.LENGTH_SHORT).show()
+                    editor?.putStringSet("sources", prevSet)
+                    editor?.commit()
                 } else {
                     Toast.makeText(context, "This source is not available to be added", Toast.LENGTH_SHORT).show()
                 }
             }
 
-        editor?.putStringSet("sources", prevSet)
-        editor?.commit()
 
     }
 }

@@ -9,11 +9,6 @@
 
     </item>
 
-    <item
-        android:id="@+id/settings"
-        android:title="@string/settings">
-
-    </item>
 
     <item
         android:id="@+id/feeds"

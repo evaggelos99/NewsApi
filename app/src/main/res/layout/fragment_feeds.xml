@@ -10,8 +10,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:text="Slide left to remove any feed">
+        android:textSize="20sp"
+        android:text="@string/slide_left_to_remove_any_feed">
 
     </TextView>
     <androidx.recyclerview.widget.RecyclerView

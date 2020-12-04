@@ -20,7 +20,7 @@ import java.io.IOException
 
 class TopicsFragment : Fragment(), onItemClickListener {
 
-    val BASE_URL = "http://newsapi.org/v2"
+    val BASE_URL = "https://newsapi.org/v2"
     val EVERYTHING = "/everything?"
     val API_KEY = "apiKey=bb5340ea2839447eb75d2e5515ab6081"
     val prefArray = arrayListOf<Any>()
@@ -104,12 +104,13 @@ class TopicsFragment : Fragment(), onItemClickListener {
                 if (item.source.id !=null) {
                     prevSet.add(item.source.id)
                     Toast.makeText(context, "Your source has been added!", Toast.LENGTH_SHORT).show()
+                    editor?.putStringSet("sources", prevSet)
+                    editor?.commit()
                 } else {
                     Toast.makeText(context, "This source is not available to be added", Toast.LENGTH_SHORT).show()
                 }
             }
-        editor?.putStringSet("sources", prevSet)
-        editor?.commit()
+
 
     }
 

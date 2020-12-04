@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.example.coursework.R
 import com.example.coursework.ui.account.ui.FeedsFragment
-import com.example.coursework.ui.account.ui.SettingsFragment
 import com.example.coursework.ui.account.ui.TopicsFragment
 import com.example.coursework.ui.account.ui.UserFragment
 
@@ -34,7 +33,6 @@ class AccountFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -50,10 +48,6 @@ class AccountFragment : Fragment() {
                     R.id.fragment_account_container, UserFragment()).commit()
         }
 
-        if (id==R.id.settings) {
-            childFragmentManager.beginTransaction().add(
-                    R.id.fragment_account_container, SettingsFragment()).commit()
-        }
 
         if (id==R.id.feeds) {
             childFragmentManager.beginTransaction().add(

@@ -19,13 +19,12 @@ import java.io.IOException
 
 class HomeFragment : Fragment(), onItemClickListener {
 
-    val BASE_URL = "http://newsapi.org/v2"
+    val BASE_URL = "https://newsapi.org/v2"
     val EVERYTHING = "/everything?"
     val API_KEY = "apiKey=bb5340ea2839447eb75d2e5515ab6081"
     val prefArray = arrayListOf<Any>()
     val TOP_HEADLINES = "/top-headlines?"
 
-    //private lateinit var homeViewModel: HomeViewModel
     private lateinit var layout : LinearLayout
 
     override fun onCreateView(
@@ -53,7 +52,10 @@ class HomeFragment : Fragment(), onItemClickListener {
 
     private fun getSourceUrl(set : MutableSet<String>) : String {
         var sourceString = "sources="
-        if (set.isEmpty()) return ""
+        if (set.isEmpty()) {
+            Toast.makeText(context, "No sources select. Country default set to UK", Toast.LENGTH_SHORT).show()
+            return "country=gb&"
+        }
         for (source in set) {
             var currentSource = source.filter { !it.isWhitespace() }
             currentSource = currentSource+","

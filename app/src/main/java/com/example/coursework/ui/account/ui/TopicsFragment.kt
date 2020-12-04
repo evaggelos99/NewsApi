@@ -9,14 +9,6 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.coursework.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TopicsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TopicsFragment : Fragment() {
 
 

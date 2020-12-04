@@ -5,15 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/fragment_search"
     tools:context=".ui.search.SearchFragment">
 
     <EditText
         android:id="@+id/Keyword_Input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:hint="Keyword">
+        android:layout_marginBottom="10dp"
+        android:hint="@string/keyword">
 
     </EditText>
 
@@ -21,21 +20,20 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp">
+        android:layout_marginBottom="10dp">
 
         <TextView
             android:text="@string/country"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginRight="25dp">
+            android:layout_marginRight="33dp">
 
         </TextView>
         <Spinner
             android:id="@+id/country_list_spinner"
             android:entries="@array/Countries"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="25dp">
+            android:layout_height="match_parent">
         </Spinner>
 
 
@@ -46,7 +44,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp">
+        android:layout_marginBottom="10dp">
 
         <TextView
             android:text="@string/category"
@@ -60,22 +58,43 @@
             android:id="@+id/category_list_spinner"
             android:entries="@array/Categories"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="25dp">
+            android:layout_height="match_parent">
+
         </Spinner>
 
 
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/search_button"
-        android:layout_marginTop="25dp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/search_for_articles">
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
 
-    </Button>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Search for Article"
+            android:textSize="20sp"
+            android:layout_height="match_parent">
+
+        </TextView>
+
+        <View
+            android:layout_width="150dp"
+            android:layout_height="match_parent">
+
+        </View>
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+    </LinearLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

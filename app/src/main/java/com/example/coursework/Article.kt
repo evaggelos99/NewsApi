@@ -13,8 +13,6 @@ class Article(val source: Source,
               val publishedAt:String,
               val content:String) {
 
-
-
 }
 
 class Source(val id : String,

@@ -7,12 +7,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coursework.*
+import com.example.coursework.ui.search.SearchRecView
+import com.example.coursework.ui.topics.allTopics.*
 import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
@@ -21,7 +24,6 @@ import java.io.IOException
 class TopicsFragment : Fragment(), onItemClickListener {
 
     val BASE_URL = "https://newsapi.org/v2"
-    val EVERYTHING = "/everything?"
     val API_KEY = "apiKey=bb5340ea2839447eb75d2e5515ab6081"
     val prefArray = arrayListOf<Any>()
     val TOP_HEADLINES = "/top-headlines?"
@@ -42,8 +44,83 @@ class TopicsFragment : Fragment(), onItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Toast.makeText(context,"Swipe down to refresh your topics!", Toast.LENGTH_LONG).show()
-        //val buttonGenerateTopics: Button = view.findViewById(R.id.button_generate_news)
+
+        val businessBtn : Button = view.findViewById(R.id.business)
+        val entertainmentBtn : Button = view.findViewById(R.id.entertainment)
+        val generalBtn : Button = view.findViewById(R.id.general)
+        val healthBtn : Button = view.findViewById(R.id.health)
+        val scienceBtn : Button = view.findViewById(R.id.science)
+        val sportsBtn : Button = view.findViewById(R.id.sports)
+        val technologyBtn : Button = view.findViewById(R.id.technology)
+
+        businessBtn.setOnClickListener {
+            val newFrag = BusinessFragment()
+            childFragmentManager.beginTransaction().replace(
+                R.id.topic_layout, newFrag).commit()
+
+            val llaout = view.findViewById(R.id.child_topic_layout) as LinearLayout
+            llaout.visibility=View.GONE
+        }
+
+        entertainmentBtn.setOnClickListener {
+            val newFrag = EntertainmentFragment()
+            childFragmentManager.beginTransaction().replace(
+                R.id.topic_layout, newFrag).commit()
+
+            val llaout = view.findViewById(R.id.child_topic_layout) as LinearLayout
+            llaout.visibility=View.GONE
+        }
+
+        generalBtn.setOnClickListener {
+            val newFrag = GeneralFragment()
+            childFragmentManager.beginTransaction().replace(
+                R.id.topic_layout, newFrag).commit()
+
+            val llaout = view.findViewById(R.id.child_topic_layout) as LinearLayout
+            llaout.visibility=View.GONE
+        }
+
+        healthBtn.setOnClickListener {
+            val newFrag = HealthFragment()
+            childFragmentManager.beginTransaction().replace(
+                R.id.topic_layout, newFrag).commit()
+
+            val llaout = view.findViewById(R.id.child_topic_layout) as LinearLayout
+            llaout.visibility=View.GONE
+        }
+
+        scienceBtn.setOnClickListener {
+            val newFrag = ScienceFragment()
+            childFragmentManager.beginTransaction().replace(
+                R.id.topic_layout, newFrag).commit()
+
+            val llaout = view.findViewById(R.id.child_topic_layout) as LinearLayout
+            llaout.visibility=View.GONE
+        }
+
+        sportsBtn.setOnClickListener {
+            val newFrag = SportsFragment()
+            childFragmentManager.beginTransaction().replace(
+                R.id.topic_layout, newFrag).commit()
+
+            val llaout = view.findViewById(R.id.child_topic_layout) as LinearLayout
+            llaout.visibility=View.GONE
+        }
+
+        technologyBtn.setOnClickListener {
+            val newFrag = TechnologyFragment()
+            childFragmentManager.beginTransaction().replace(
+                R.id.topic_layout, newFrag).commit()
+
+            val llaout = view.findViewById(R.id.child_topic_layout) as LinearLayout
+            llaout.visibility=View.GONE
+        }
+
+
+
+
+
+        /*Toast.makeText(context,"Swipe down to refresh your topics!", Toast.LENGTH_LONG).show()
         layout = view.findViewById(R.id.topic_layout)
 
         val preferences = activity?.getSharedPreferences("pref", Context.MODE_PRIVATE)
@@ -63,7 +140,7 @@ class TopicsFragment : Fragment(), onItemClickListener {
         if (preferredCountry != null) {
             swipeDownListener(preferredCountry, view)
 
-        }
+        }*/
 
 
 
@@ -89,9 +166,23 @@ class TopicsFragment : Fragment(), onItemClickListener {
         val newIntent = Intent(Intent.ACTION_VIEW)
         newIntent.data = Uri.parse(item.url)
         startActivity(newIntent)
+        /*val preferences = activity?.getSharedPreferences("clicks", Context.MODE_PRIVATE)
+        val preferencesBusiness = activity?.getSharedPreferences(item.cat, Context.MODE_PRIVATE)
+        val preferencesEntertainment = activity?.getSharedPreferences("clicksEntertainment", Context.MODE_PRIVATE)
+        val preferencesGeneral = activity?.getSharedPreferences("clicksGeneral", Context.MODE_PRIVATE)
+        val preferencesHealth = activity?.getSharedPreferences("clicksHealth", Context.MODE_PRIVATE)
+        val preferencesScience = activity?.getSharedPreferences("clicksScience", Context.MODE_PRIVATE)
+        val preferencesSports = activity?.getSharedPreferences("clicksSports", Context.MODE_PRIVATE)
+        val preferencesTechnology = activity?.getSharedPreferences("clicksTechnology", Context.MODE_PRIVATE)
+
+
+        val editor = preferences?.edit()
+        preferences?.getInt("totalClicks", 0)
+
+        editor.putStringSet()*/
     }
 
-    override fun onSourceAddClick(item: Article, position: Int) {
+    /*override fun onSourceAddClick(item: Article, position: Int) {
         val preferences = activity?.getSharedPreferences("sources", Context.MODE_PRIVATE)
         val editor = preferences?.edit()
         var set : MutableSet<String> = HashSet()
@@ -112,7 +203,7 @@ class TopicsFragment : Fragment(), onItemClickListener {
             }
 
 
-    }
+    }*/
 
 
 
@@ -137,7 +228,7 @@ class TopicsFragment : Fragment(), onItemClickListener {
 
 
 
-    private fun swipeDownListener(preferredCountry: String, view: View) {
+    /*private fun swipeDownListener(preferredCountry: String, view: View) {
         layout.setOnTouchListener(object : OnSwipeTouchListener(context) {
             override fun onSwipeDown() {
                 super.onSwipeDown()
@@ -181,7 +272,7 @@ class TopicsFragment : Fragment(), onItemClickListener {
         })
 
 
-    }
+    }*/
 
 
 }

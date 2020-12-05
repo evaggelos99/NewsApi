@@ -20,9 +20,9 @@ class MyAdapter(val articleArray: ArticleArray, var clickListener : onItemClickL
         fun init(item : Article, action: onItemClickListener) {
             textViewTitle.text = item.title
             textViewDescription.text = item.description
-            Picasso.get().load(item.urlToImage).into(image)
+            if (!item.urlToImage.isNullOrEmpty())
+                Picasso.get().load(item.urlToImage).into(image)
 
-            val gg = item.source.toString()
             textViewSource.text = item.source.name
             textViewAuthor.text = item.author
 

@@ -1,6 +1,8 @@
 package com.example.coursework.ui.home
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -45,7 +47,6 @@ class HomeFragment : Fragment(), onItemClickListener {
 
         if (sourceSet != null) {
             swipeDownListener(sourceSet,view)
-            Toast.makeText(context, sourceSet.toString(), Toast.LENGTH_LONG).show()
         }
 
     }
@@ -67,7 +68,6 @@ class HomeFragment : Fragment(), onItemClickListener {
 
         sourceString = sourceString.substring(0,sourceString.length - 1)
         sourceString+= "&"
-        Toast.makeText(context, sourceString, Toast.LENGTH_SHORT).show()
         return sourceString
     }
 
@@ -114,6 +114,13 @@ class HomeFragment : Fragment(), onItemClickListener {
 
 
     }
+
+    override fun onItemClick(item: Article, position: Int) {
+        val newIntent = Intent(Intent.ACTION_VIEW)
+        newIntent.data = Uri.parse(item.url)
+        startActivity(newIntent)
+    }
+
 
 
 }

@@ -2,19 +2,13 @@ package com.example.coursework.ui.account.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.coursework.FireBase.LoginActivity
 import com.example.coursework.FireBase.RegisterActivity
 import com.example.coursework.R
-import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 
 class UserFragment : Fragment() {
@@ -23,16 +17,19 @@ class UserFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
     
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        return inflater.inflate(R.layout.fragment_user, container, false)
+    }
 
-        val root = inflater.inflate(R.layout.fragment_user, container, false)
-        val buttonLogOut :Button = root.findViewById(R.id.button_log_out)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val buttonLogOut :Button = view.findViewById(R.id.button_log_out)
         auth = FirebaseAuth.getInstance()
         buttonLogOut.setOnClickListener {
             if (auth.currentUser!=null) {
@@ -44,11 +41,7 @@ class UserFragment : Fragment() {
         }
 
 
-        // Inflate the layout for this fragment
-        return root
-
     }
-
 
 
 

@@ -9,20 +9,76 @@
     tools:context=".ui.topics.TopicsFragment"
     android:orientation="vertical">
 
-
-    <!--<TextView
-        android:id="@+id/swipe_up_information"
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/child_topic_layout"
         android:layout_width="match_parent"
-        android:text="@string/swipe_up_for_generating_news"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-    </TextView> -->
-    <androidx.recyclerview.widget.RecyclerView
+        <Button
+            android:id="@+id/business"
+            android:text="Business"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+        <Button
+            android:id="@+id/entertainment"
+            android:text="entertainment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+        <Button
+            android:id="@+id/general"
+            android:text="general"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+        <Button
+            android:id="@+id/health"
+            android:text="health"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+        <Button
+            android:id="@+id/science"
+            android:text="science"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+        <Button
+            android:id="@+id/sports"
+            android:text="sports"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+        <Button
+            android:id="@+id/technology"
+            android:text="technology"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+    </LinearLayout>
+
+    <!--<androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/recyclerView_topics_layout"
         android:layout_height="match_parent">
 
 
-    </androidx.recyclerview.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView> -->
 
 </LinearLayout>

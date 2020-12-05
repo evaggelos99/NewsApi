@@ -50,7 +50,7 @@
                 android:layout_height="80dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="5dp"
-                android:src="@mipmap/ic_launcher"
+                android:src="@mipmap/ic_image_not_available"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

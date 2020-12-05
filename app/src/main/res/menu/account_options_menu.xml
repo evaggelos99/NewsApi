@@ -11,8 +11,14 @@
 
 
     <item
+        android:id="@+id/addFeeds"
+        android:title="@string/add_feeds">
+
+    </item>
+
+    <item
         android:id="@+id/feeds"
-        android:title="@string/feeds">
+        android:title="@string/remove_feeds">
 
     </item>
 

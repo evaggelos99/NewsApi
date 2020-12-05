@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.account.ui.TopicNotificationFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="20sp"
+            android:text="@string/choose_which_topics_you_want_push_notifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="7dp"
+            android:layout_height="match_parent"
+            android:text="@string/business" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </Space>
+
+
+        <ToggleButton
+            android:id="@+id/topic_toggle_business"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </ToggleButton>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="7dp"
+            android:layout_height="match_parent"
+            android:text="@string/entertainment" />
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </Space>
+
+        <ToggleButton
+            android:id="@+id/topic_toggle_entertainment"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </ToggleButton>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textSize="20sp"
+
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="7dp"
+            android:layout_height="match_parent"
+            android:text="@string/general" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </Space>
+
+        <ToggleButton
+            android:id="@+id/topic_toggle_general"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </ToggleButton>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="20sp"
+
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_height="match_parent"
+                android:text="@string/science" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+            <ToggleButton
+                android:id="@+id/topic_toggle_science"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </ToggleButton>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="20sp"
+
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_height="match_parent"
+                android:text="@string/health" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+            <ToggleButton
+                android:id="@+id/topic_toggle_health"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </ToggleButton>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="20sp"
+
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_height="match_parent"
+                android:text="@string/sports" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+            <ToggleButton
+                android:id="@+id/topic_toggle_sports"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </ToggleButton>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="20sp"
+
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="7dp"
+                android:layout_height="match_parent"
+                android:text="@string/technology" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+            <ToggleButton
+                android:id="@+id/topic_toggle_technology"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+            </ToggleButton>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/reset_notifications"
+                android:textSize="20sp"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+            <View
+                android:layout_width="161dp"
+                android:layout_height="match_parent">
+
+            </View>
+
+            <Button
+                android:id="@+id/reset_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Button>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/apply_changes"
+                android:textSize="20sp"
+                android:layout_height="match_parent">
+
+            </TextView>
+
+            <View
+                android:layout_width="195dp"
+                android:layout_height="match_parent">
+
+            </View>
+
+            <Button
+                android:id="@+id/apply_notifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Button>
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

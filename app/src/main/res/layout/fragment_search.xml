@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:id="@+id/search_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,38 +9,46 @@
     android:orientation="vertical"
     tools:context=".ui.search.SearchFragment">
 
-    <EditText
-        android:id="@+id/Keyword_Input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:hint="@string/keyword">
-
-    </EditText>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:id="@+id/search_child_layout"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp">
-
-        <TextView
-            android:text="@string/country"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="33dp">
-
-        </TextView>
-        <Spinner
-            android:id="@+id/country_list_spinner"
-            android:entries="@array/Countries"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-        </Spinner>
+        android:layout_height="match_parent">
 
 
+        <EditText
+            android:id="@+id/Keyword_Input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="@string/keyword">
 
-    </LinearLayout>
+        </EditText>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:text="@string/country"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="33dp">
+
+            </TextView>
+            <Spinner
+                android:id="@+id/country_list_spinner"
+                android:entries="@array/Countries"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+            </Spinner>
+
+
+
+        </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -96,12 +106,6 @@
     </LinearLayout>
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:id="@+id/recyclerView_search_layout"
-        android:layout_height="match_parent">
-
-
-    </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
 
 </LinearLayout>

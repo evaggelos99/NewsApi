@@ -27,7 +27,7 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/new_app_widget_info" />
         </receiver>
-        <receiver android:name=".ArticleFeedWidget">
+        <receiver android:name=".Widget.ArticleFeedWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -68,7 +68,7 @@
             android:name=".NotificationJobService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service
-            android:name=".WidgetService"
+            android:name=".Widget.WidgetService"
             android:enabled="true"
             android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>

@@ -1,29 +1,29 @@
-package com.example.coursework
+package com.example.coursework.Widget
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Bitmap
-import android.net.Uri
 import android.util.Log
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.coursework.Adapters.ArticleArray
+import com.example.coursework.Adapters.onItemClickListener
+import com.example.coursework.R
 import com.google.gson.GsonBuilder
 import com.squareup.picasso.Picasso
 import okhttp3.*
 import java.io.IOException
-import java.util.concurrent.CountDownLatch
 
 class WidgetService() : RemoteViewsService() {
     override fun onGetViewFactory(intent: Intent): RemoteViewsFactory {
-        return ItemFactor(applicationContext, intent)
+        return ItemFactor(
+            applicationContext,
+            intent
+        )
     }
 
-    class ItemFactor(val context: Context, val intent : Intent) : RemoteViewsFactory, onItemClickListener {
+    class ItemFactor(val context: Context, val intent : Intent) : RemoteViewsFactory,
+        onItemClickListener {
 
         lateinit var articles : ArticleArray
         val BASE_URL = "https://newsapi.org/v2"
@@ -170,7 +170,9 @@ class WidgetService() : RemoteViewsService() {
         }
 
         override fun getViewAt(position: Int): RemoteViews {
-            val views = RemoteViews(context.packageName, R.layout.widget_item)
+            val views = RemoteViews(context.packageName,
+                R.layout.widget_item
+            )
             views.setTextViewText(R.id.widget_title, articles.articles[position].title)
             views.setTextViewText(R.id.widget_source, articles.articles[position].source.name)
             if (!articles.articles[position].urlToImage.isNullOrEmpty()) {

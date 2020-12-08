@@ -1,4 +1,4 @@
-package com.example.coursework
+package com.example.coursework.Adapters
 
 class ArticleArray(val status: String, val totalResults: Int, val articles: List<Article>) {
 

@@ -1,25 +1,17 @@
 package com.example.coursework.ui.search
 
-import android.R.attr.data
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.coursework.*
-import com.google.gson.GsonBuilder
-import okhttp3.*
-import java.io.IOException
+import com.example.coursework.Adapters.onItemClickListener
 
 
-class SearchFragment : Fragment(), onItemClickListener {
+class SearchFragment : Fragment(),
+    onItemClickListener {
 
 
 

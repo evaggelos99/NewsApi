@@ -9,17 +9,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coursework.*
-import com.example.coursework.ui.topics.OnSwipeTouchListener
+import com.example.coursework.Adapters.Article
+import com.example.coursework.Adapters.ArticleArray
+import com.example.coursework.Adapters.MyAdapter
+import com.example.coursework.Adapters.onItemClickListener
+import com.example.coursework.Listeners.OnSwipeTouchListener
 import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
 
-class HomeFragment : Fragment(), onItemClickListener {
+class HomeFragment : Fragment(),
+    onItemClickListener {
 
     val BASE_URL = "https://newsapi.org/v2"
     val TOP_HEADLINES="/top-headlines?"
@@ -97,7 +100,12 @@ class HomeFragment : Fragment(), onItemClickListener {
                             val llm = LinearLayoutManager(context)
                             llm.orientation = LinearLayoutManager.VERTICAL
                             recyclerViewLayout.setLayoutManager(llm)
-                            recyclerViewLayout.setAdapter(MyAdapter(articles,this@HomeFragment))
+                            recyclerViewLayout.setAdapter(
+                                MyAdapter(
+                                    articles,
+                                    this@HomeFragment
+                                )
+                            )
 
                         }
 

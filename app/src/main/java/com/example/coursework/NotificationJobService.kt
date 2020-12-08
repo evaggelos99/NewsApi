@@ -38,13 +38,8 @@ class NotificationJobService : JobService() {
 
     private fun createNotificationChannel() {
 
-        // Define notification manager object.
         mNotifyManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        // Notification channels are only available in OREO and higher.
-        // So, add a check on SDK version.
-
-        // Create the NotificationChannel with all the parameters.
         val notificationChannel = NotificationChannel(PRIMARY_CHANNEL_ID,
                 "Job Service notification",
                 NotificationManager.IMPORTANCE_HIGH)
@@ -58,7 +53,6 @@ class NotificationJobService : JobService() {
 
     companion object {
         val PRIMARY_CHANNEL_ID = "primary_notification_channel"
-        val ONEY_DAY_INTERVAL = 24 * 60 * 60* 1000L
     }
 
 }

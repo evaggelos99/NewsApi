@@ -12,11 +12,16 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coursework.*
+import com.example.coursework.Adapters.Article
+import com.example.coursework.Adapters.ArticleArray
+import com.example.coursework.Adapters.MyAdapter
+import com.example.coursework.Adapters.onItemClickListener
 import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
 
-class EntertainmentFragment : Fragment(), onItemClickListener {
+class EntertainmentFragment : Fragment(),
+    onItemClickListener {
 
 
     val BASE_URL = "https://newsapi.org/v2"
@@ -58,7 +63,12 @@ class EntertainmentFragment : Fragment(), onItemClickListener {
                         val llm = LinearLayoutManager(context)
                         llm.orientation = LinearLayoutManager.VERTICAL
                         recyclerViewLayout.setLayoutManager(llm)
-                        recyclerViewLayout.setAdapter(MyAdapter(articles, this@EntertainmentFragment))
+                        recyclerViewLayout.setAdapter(
+                            MyAdapter(
+                                articles,
+                                this@EntertainmentFragment
+                            )
+                        )
 
                     }
 

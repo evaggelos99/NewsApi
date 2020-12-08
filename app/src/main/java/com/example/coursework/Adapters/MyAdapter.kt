@@ -1,4 +1,4 @@
-package com.example.coursework
+package com.example.coursework.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.coursework.R
 import com.squareup.picasso.Picasso
 
 class MyAdapter(val articleArray: ArticleArray, var clickListener : onItemClickListener) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {

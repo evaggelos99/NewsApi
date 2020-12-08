@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">courseWork</string>
+    <string name="app_name">ArticleFeed</string>
     <string name="title_feed">Home</string>
     <string name="title_topics">Topics</string>
     <string name="title_search">Search</string>
@@ -75,8 +75,8 @@
         <item>sports</item>
         <item>technology</item>
     </string-array>
-    <string name="title_activity_register">Register</string>
-    <string name="title_activity_login">Login</string>
+    <string name="title_activity_register">ArticleFeed</string>
+    <string name="title_activity_login">ArticleFeed</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.

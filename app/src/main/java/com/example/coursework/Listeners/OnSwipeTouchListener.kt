@@ -1,4 +1,4 @@
-package com.example.coursework.ui.topics
+package com.example.coursework.Listeners
 
 import android.content.Context
 import android.view.GestureDetector

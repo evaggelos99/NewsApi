@@ -9,10 +9,12 @@ import android.widget.Button
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.example.coursework.*
+import com.example.coursework.Adapters.onItemClickListener
 import com.example.coursework.ui.topics.allTopics.*
 
 
-class TopicsFragment : Fragment(), onItemClickListener {
+class TopicsFragment : Fragment(),
+    onItemClickListener {
 
 
     val BASE_URL = "https://newsapi.org/v2"

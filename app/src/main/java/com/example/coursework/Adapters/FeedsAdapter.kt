@@ -1,4 +1,4 @@
-package com.example.coursework
+package com.example.coursework.Adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import android.widget.Filterable
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.coursework.R
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -26,7 +27,7 @@ class FeedAdapter(val feedSourceList : Feed) : RecyclerView.Adapter<FeedAdapter.
         feedList.addAll(feedSourceList.sources)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent?.context).inflate(R.layout.feed_cardview_row,parent,false)
 
         return ViewHolder(v)
@@ -124,7 +125,7 @@ class FeedSource(val sourceString : String) {
 
 class SimpleFeedAdapter(val simpleFeedSourceList : ArrayList<FeedSource>) : RecyclerView.Adapter<SimpleFeedAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleFeedAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.feed_cardview_row,parent,false)
 
         return ViewHolder(v)
@@ -134,7 +135,7 @@ class SimpleFeedAdapter(val simpleFeedSourceList : ArrayList<FeedSource>) : Recy
         return simpleFeedSourceList.size
     }
 
-    override fun onBindViewHolder(holder: SimpleFeedAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val source : FeedSource = simpleFeedSourceList[position]
         holder.textViewSource.text = source.toString()
     }

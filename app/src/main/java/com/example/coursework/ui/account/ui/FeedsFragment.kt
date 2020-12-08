@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coursework.*
+import com.example.coursework.Adapters.FeedSource
+import com.example.coursework.Adapters.SimpleFeedAdapter
+import com.example.coursework.Listeners.SwipeToDelete
 import kotlin.collections.ArrayList
 
 
@@ -45,7 +48,11 @@ class FeedsFragment : Fragment() {
             val llm = LinearLayoutManager(context)
             llm.orientation = LinearLayoutManager.VERTICAL
             recViewFeeds.setLayoutManager(llm)
-            recViewFeeds.setAdapter(SimpleFeedAdapter(feeds))
+            recViewFeeds.setAdapter(
+                SimpleFeedAdapter(
+                    feeds
+                )
+            )
             feedAdapter= SimpleFeedAdapter(feeds)
         }
 

@@ -2,20 +2,23 @@ package com.example.coursework.ui.account.ui
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Filterable
-import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coursework.*
+import com.example.coursework.Adapters.Feed
+import com.example.coursework.Adapters.FeedAdapter
+import com.example.coursework.Adapters.onItemClickListener
+import com.example.coursework.Listeners.SwipeToDelete
 import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
 
 
-class AddFeedsFragment : Fragment(), onItemClickListener {
+class AddFeedsFragment : Fragment(),
+    onItemClickListener {
     var adapt : FeedAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

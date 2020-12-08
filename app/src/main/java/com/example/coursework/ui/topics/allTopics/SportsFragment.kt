@@ -18,9 +18,10 @@ import java.io.IOException
 
 class SportsFragment : Fragment(), onItemClickListener {
 
+
     val BASE_URL = "https://newsapi.org/v2"
-    val API_KEY = "apiKey=bb5340ea2839447eb75d2e5515ab6081"
-    val TOP_HEADLINES = "/top-headlines?"
+    val TOP_HEADLINES="/top-headlines?"
+    val API_KEY="apiKey=bb5340ea2839447eb75d2e5515ab6081"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

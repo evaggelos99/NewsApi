@@ -1,6 +1,5 @@
 package com.example.coursework.ui.search
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -20,9 +19,11 @@ import java.io.IOException
 
 class SearchRecView : Fragment(), onItemClickListener{
 
-    val BASE_URL ="https://newsapi.org/v2"
-    val TOP_HEADLINES = "/top-headlines?"
-    val API_KEY = "apiKey=bb5340ea2839447eb75d2e5515ab6081"
+
+
+    val BASE_URL = "https://newsapi.org/v2"
+    val TOP_HEADLINES="/top-headlines?"
+    val API_KEY="apiKey=bb5340ea2839447eb75d2e5515ab6081"
     lateinit var layout : LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {

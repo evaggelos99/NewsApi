@@ -19,9 +19,10 @@ import java.io.IOException
 
 class BusinessFragment : Fragment(), onItemClickListener {
 
+
     val BASE_URL = "https://newsapi.org/v2"
-    val API_KEY = "apiKey=bb5340ea2839447eb75d2e5515ab6081"
-    val TOP_HEADLINES = "/top-headlines?"
+    val TOP_HEADLINES="/top-headlines?"
+    val API_KEY="apiKey=bb5340ea2839447eb75d2e5515ab6081"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +43,8 @@ class BusinessFragment : Fragment(), onItemClickListener {
         val preferredCountry = preferences?.getString("preferred_country", "gb")
         if (bool!!) {
             val request = Request.Builder()
-                .url(BASE_URL + TOP_HEADLINES + "country=" + preferredCountry + "&" + "category=business&" + API_KEY)
-                .build()
+                    .url(BASE_URL + TOP_HEADLINES + "country=" + preferredCountry + "&" + "category=business&" + API_KEY)
+                    .build()
             val client = OkHttpClient()
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {}
@@ -53,7 +54,7 @@ class BusinessFragment : Fragment(), onItemClickListener {
                     val gson = GsonBuilder().create()
                     val articles = gson.fromJson(body, ArticleArray::class.java)
                     val recyclerViewLayout =
-                        view.findViewById(R.id.business_recView) as RecyclerView
+                            view.findViewById(R.id.business_recView) as RecyclerView
 
                     activity?.runOnUiThread {
                         val llm = LinearLayoutManager(context)

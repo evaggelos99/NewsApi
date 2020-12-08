@@ -35,7 +35,6 @@ class TopicsFragment : Fragment() {
         val toggleButtonSports: ToggleButton = view.findViewById(R.id.toggle_sports)
         val toggleButtonTechnology: ToggleButton = view.findViewById(R.id.toggle_technology)
         val spinnerLanguage : Spinner = view.findViewById(R.id.category_preferred_language)
-        val notificationButton : Button = view.findViewById(R.id.topic_notification)
         resetButton.setOnClickListener{
             val preferences = activity?.getSharedPreferences("pref", Context.MODE_PRIVATE)
             val editor = preferences?.edit()
@@ -67,14 +66,6 @@ class TopicsFragment : Fragment() {
             Toast.makeText(context, "Your topics are saved!", Toast.LENGTH_SHORT).show()
         }
 
-        notificationButton.setOnClickListener {
-            val newFrag = TopicNotificationFragment()
-            childFragmentManager.beginTransaction().replace(
-                R.id.topic_frag_layout, newFrag).commit()
-
-            val llaout = view.findViewById(R.id.child_topic_frag_layout) as LinearLayout
-            llaout.visibility=View.GONE
-        }
 
 
 

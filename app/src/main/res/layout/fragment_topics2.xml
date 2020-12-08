@@ -42,6 +42,7 @@
 
 
                 <ToggleButton
+                    android:theme="@style/ToggleButton.CustomTheme"
                     android:id="@+id/toggle_business"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="15dp"
@@ -77,6 +78,7 @@
                 </Space>
 
                 <ToggleButton
+                    android:theme="@style/ToggleButton.CustomTheme"
                     android:id="@+id/toggle_entertainment"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="15dp"
@@ -112,6 +114,7 @@
                 </Space>
 
                 <ToggleButton
+                    android:theme="@style/ToggleButton.CustomTheme"
                     android:id="@+id/toggle_general"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="15dp"
@@ -146,6 +149,7 @@
                 </Space>
 
                 <ToggleButton
+                    android:theme="@style/ToggleButton.CustomTheme"
                     android:id="@+id/toggle_science"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="15dp"
@@ -181,6 +185,7 @@
                 </Space>
 
                 <ToggleButton
+                    android:theme="@style/ToggleButton.CustomTheme"
                     android:id="@+id/toggle_health"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="15dp"
@@ -215,6 +220,7 @@
                 </Space>
 
                 <ToggleButton
+                    android:theme="@style/ToggleButton.CustomTheme"
                     android:id="@+id/toggle_sports"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="15dp"
@@ -249,6 +255,7 @@
                 </Space>
 
                 <ToggleButton
+                    android:theme="@style/ToggleButton.CustomTheme"
                     android:id="@+id/toggle_technology"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="15dp"
@@ -289,7 +296,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:text="Reset Your Topics"
+                android:text="@string/reset_your_topics"
                 android:textSize="20sp"
                 android:layout_height="match_parent">
 
@@ -318,7 +325,7 @@
 
             <TextView
                 android:textSize="20sp"
-                android:text="Save your Topics"
+                android:text="@string/save_your_topics"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent">
 
@@ -341,33 +348,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:textSize="20sp"
-                android:text="Configure notifications"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
-
-            </TextView>
-
-            <View
-                android:layout_width="123dp"
-                android:layout_height="match_parent">
-
-            </View>
-
-            <Button
-                android:id="@+id/topic_notification"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </Button>
-
-        </LinearLayout>
 
 
 

@@ -93,7 +93,7 @@
     <!-- Sync Preferences -->
     <string name="user">User</string>
     <string name="feeds">feeds</string>
-    <string name="topics">topics</string>
+    <string name="topics">Topics</string>
 
     <string name="business">Business</string>
     <string name="entertainment">Entertainment</string>
@@ -115,4 +115,16 @@
     <string name="reset_notifications">Reset notifications</string>
     <string name="add_feeds">Add Feeds</string>
     <string name="remove_feeds">Remove Feeds</string>
+    <string name="appwidget_text">ArticleFeed</string>
+    <string name="add_widget">Add widget</string>
+    <string name="channel_one_body">Channel One</string>
+    <string name="channel_two_body">Channel Two</string>
+    <string name="reset_your_topics">Reset Your Topics</string>
+    <string name="save_your_topics">Save your Topics</string>
+    <string name="swipe_right_to_add_feeds">Swipe right to add feeds</string>
+    <string name="BASE_URL">https://newsapi.org/v2</string>
+    <string name="TOP_HEADLINES">/top-headlines?</string>
+    <string name="API_KEY">apiKey=bb5340ea2839447eb75d2e5515ab6081</string>
+    <string name="COUNTRY">country=</string>
+    <string name="CATEGORY">category=</string>
 </resources>

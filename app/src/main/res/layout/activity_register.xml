@@ -8,7 +8,14 @@
     tools:context=".FireBase.RegisterActivity"
     android:orientation="vertical">
 
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+    </Space>
+
     <EditText
+        android:gravity="center"
         android:id="@+id/email_signUp"
         android:hint="@string/email"
         android:layout_marginTop="25dp"
@@ -19,6 +26,7 @@
     </EditText>
 
     <EditText
+        android:gravity="center"
         android:layout_width="match_parent"
         android:id="@+id/password_signUp"
         android:hint="@string/password"
@@ -30,6 +38,7 @@
     </EditText>
 
     <Button
+        android:gravity="center"
         android:id="@+id/button_signUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,6 +53,7 @@
         android:gravity="bottom">
 
         <Button
+            android:gravity="center"
             android:layout_width="match_parent"
             android:id="@+id/button_register_login"
             android:text="@string/already_have_an_account_log_in"

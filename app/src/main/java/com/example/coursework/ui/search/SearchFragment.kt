@@ -21,21 +21,16 @@ import java.io.IOException
 
 class SearchFragment : Fragment(), onItemClickListener {
 
-    //TODO Make the xml prettier maybe commit another fragment to display the recycler yes maybe!
-    //TODO Make notifications. Look into sleep mode. NOTIFICATIONS ONLY ON TOPICS SELECTED BY USER
 
-    val BASE_URL ="https://newsapi.org/v2"
-    val TOP_HEADLINES = "/top-headlines?"
-    val EVERYTHING = "/everything?"
-    val API_KEY = "apiKey=bb5340ea2839447eb75d2e5515ab6081"
+
+    val BASE_URL = "https://newsapi.org/v2"
+    val TOP_HEADLINES="/top-headlines?"
+    val API_KEY="apiKey=bb5340ea2839447eb75d2e5515ab6081"
+
     //params
     val COUNTRY = "country="
     val CATEGORY = "category="
-    //val KEYWORD_PHRASE = "q="
-    val PAGE = "page"
-    val PAGE_SIZE = "pageSize"
 
-    private lateinit var searchViewModel: SearchViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,

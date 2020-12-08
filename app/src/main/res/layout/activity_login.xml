@@ -9,7 +9,13 @@
     android:orientation="vertical">
 
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+    </Space>
+
     <EditText
+        android:gravity="center"
         android:id="@+id/email_login"
         android:layout_width="match_parent"
         android:hint="@string/email"
@@ -19,6 +25,7 @@
     </EditText>
 
     <EditText
+        android:gravity="center"
         android:id="@+id/password_login"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
@@ -29,6 +36,7 @@
     </EditText>
 
     <Button
+        android:gravity="center"
         android:id="@+id/button_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,6 +53,8 @@
 
 
         <Button
+            android:gravity="center"
+            android:layout_marginBottom="25dp"
             android:id="@+id/button_login_register"
             android:text="@string/navigate_back_to_register_screen"
             android:layout_width="match_parent"
